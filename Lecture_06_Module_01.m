@@ -73,9 +73,9 @@ function C = estCohere(XL, XR, alpha)
 
     b = [1 - alpha];
     a = [1, -alpha];
-    filter(b, a, phiLL);
-    filter(b, a, phiRR);
-    filter(b, a, phiLR);
+    phiLL = filter(b, a, phiLL);
+    phiRR = filter(b, a, phiRR);
+    phiLR = filter(b, a, phiLR);
 
     C = phiLR ./ sqrt(phiLL .* phiRR);
 end
