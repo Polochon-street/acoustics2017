@@ -29,13 +29,6 @@ roomName = 'irs/church_0.wav';
 % roomName = 'Room_C_45deg.wav';
 % roomName = 'Room_D_45deg.wav';
 
-% Window length
-% winSec = ?????
-
-% Integration time constant for coherence estimation in seconds
-% tauSec = ?????
-
-
 %% CREATE BINAURAL SIGNAL
 % 
 % 
@@ -77,7 +70,7 @@ for tauSec = 10e-3:0.01:1
         (sum((xL-sLDry).*(xL-sLDry) + (xR - sRDry).*(xR - sRDry))));
 
     DDR_post = 10*log10((sum(sLDry.*sLDry) + sum(sRDry.*sRDry)) / ...
-        (sum((sL - sLDry).*(sL - sLDry) + (xR -sRDry).*(xR - sRDry))));
+        (sum((sL - sLDry).*(sL - sLDry) + (sR -sRDry).*(sR - sRDry))));
     DeltaDDR = DDR_post - DDR_pre;
     tauSecs = [tauSec, tauSecs];
     DeltaDDRs = [DeltaDDR, DeltaDDRs];
